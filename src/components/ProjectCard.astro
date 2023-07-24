@@ -1,0 +1,35 @@
+---
+import ExternalLinkIcon from "../icons/external-link.svg";
+
+interface Props {
+  title: string;
+  subtitle: string;
+  role: string;
+  image: string;
+  link: string;
+}
+
+const { title, subtitle, role, image, link } = Astro.props;
+---
+
+<div
+  class="flex justify-center items-start text-2xl max-w-5xl mx-auto space-x-24"
+>
+  <div>
+    <h1 class="text-6xl font-bold mb-3">
+      {title}
+    </h1>
+    <h3>
+      {subtitle}
+    </h3>
+  </div>
+
+  <div class="space-y-3">
+    <h4 class="text-gray">Role</h4>
+    <h3>{role}</h3>
+    <a class="flex items-baseline space-x-2" href={link}>
+      <p class="mt-4">Check it out</p>
+      <img src={ExternalLinkIcon} /></a
+    >
+  </div>
+</div>
