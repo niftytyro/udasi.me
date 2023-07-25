@@ -15,4 +15,7 @@ const currentPath = pathname.slice(pathname.lastIndexOf("/"));
   <h3 class={currentPath === "/about" ? "underline" : ""}>
     <a href="/about">About</a>
   </h3>
+  <h3>
+    <p>{pathname}</p>
+  </h3>
 </nav>
