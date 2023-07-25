@@ -18,7 +18,7 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="w-screen h-screen bg-black text-white py-12 px-32">
+  <body class="w-screen h-screen bg-black text-white py-12">
     <slot />
   </body>
 </html>
@@ -26,8 +26,8 @@ const { title } = Astro.props;
   html {
     background-color: #101010;
   }
-  code {
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+
+  *::-webkit-scrollbar {
+    display: none;
   }
 </style>

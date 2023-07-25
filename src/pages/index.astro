@@ -1,13 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
-import ProjectCard from "../components/ProjectCard.astro";
+import ProjectCard from "../components/ProjectCard";
 ---
 
 <Layout title="Welcome to Astro.">
   <Navbar />
-  <section class="flex flex-col py-64 max-w-5xl mx-auto">
-    <h1 class="text-3xl text-center">
+  <section class="flex flex-col py-64 max-w-5xl mx-auto px-32">
+    <h1 class="text-2xl text-center">
       <span class="text-4xl">Hello! I am Udasi.</span><br />I am a software
       developer with a love<br />for great products and technology.
     </h1>
@@ -20,13 +20,18 @@ import ProjectCard from "../components/ProjectCard.astro";
       role="Founding Engineer, Full Stack"
       subtitle="A collection of video editing templates for professional editors."
       link="/projects/vidpedia"
+      client:only="react"
+      accentColor="#FDFC47"
     />
-    <!-- <ProjectCard
+    <div class="h-28"></div>
+    <ProjectCard
       title="Jupiter"
-      image=""
+      image="/public/projects/jupiter/thumbnail.png"
       role="Software Engineer, Frontend"
       subtitle="India's leading neobank."
       link="https://jupiter.money"
-    /> -->
+      client:only="react"
+      accentColor="#FC7A69"
+    />
   </section>
 </Layout>
