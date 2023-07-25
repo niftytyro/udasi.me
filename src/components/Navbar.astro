@@ -1,6 +1,6 @@
 ---
 let pathname = new URL(Astro.request.url).pathname;
-if (pathname.charAt(-1) === "/") {
+if (pathname.charAt(pathname.length - 1) === "/") {
   pathname = pathname.slice(0, -1);
 }
 ---
@@ -16,8 +16,5 @@ if (pathname.charAt(-1) === "/") {
   </h3>
   <h3 class={pathname === "/about" ? "underline" : ""}>
     <a href="/about">About</a>
-  </h3>
-  <h3>
-    <p>{Astro.request.url}</p>
   </h3>
 </nav>
