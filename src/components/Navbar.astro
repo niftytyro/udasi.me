@@ -2,7 +2,9 @@
 const currentPath = new URL(Astro.request.url).pathname;
 ---
 
-<nav class="flex justify-end items-center space-x-9 px-32">
+<nav
+  class="flex justify-end items-center space-x-4 sm:space-x-9 pr-8 sm:px-12 md:px-20 lg:px-32"
+>
   <h3 class={currentPath === "/" ? "underline" : ""}>
     <a href="/">Home</a>
   </h3>
