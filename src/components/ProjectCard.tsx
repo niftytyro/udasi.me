@@ -24,9 +24,6 @@ const ProjectCard: React.FC<Props> = ({
 
   const onScroll = useCallback(() => {
     const rect = thumbnailRef?.current?.getBoundingClientRect();
-    if (rect) {
-      console.log(isVisible, rect.top, window.innerHeight / 3);
-    }
     if (
       rect &&
       rect.top <= window.innerHeight / 2 &&

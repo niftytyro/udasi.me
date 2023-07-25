@@ -6,8 +6,9 @@ module.exports = {
       black: "#101010",
       white: "#FCFCFC",
       gray: "#B9B9B9",
-      "vidpedia-accent": "#FDFC47",
+      darkGray: "#181818",
       "jupiter-accent": "#FC7A69",
+      "vidpedia-accent": "#FDFC47",
     },
     fontFamily: {
       sans: ["Work Sans Variable", "sans-serif"],

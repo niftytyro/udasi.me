@@ -2,21 +2,23 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import ProjectCard from "../components/ProjectCard";
+import TemplateCard from "../components/TemplateCard.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout title="Welcome to Astro.">
   <Navbar />
-  <section class="flex flex-col py-64 max-w-5xl mx-auto px-32">
+  <section class="flex flex-col pt-64 pb-56 max-w-5xl mx-auto px-32">
     <h1 class="text-2xl text-center">
       <span class="text-4xl">Hello! I am Udasi.</span><br />I am a software
       developer with a love<br />for great products and technology.
     </h1>
   </section>
 
-  <section class="w-full">
+  <section id="work" class="w-full py-8">
     <ProjectCard
       title="Vidpedia"
-      image="/public/projects/vidpedia/thumbnail.png"
+      image="/projects/vidpedia/thumbnail.png"
       role="Founding Engineer, Full Stack"
       subtitle="A collection of video editing templates for professional editors."
       link="/projects/vidpedia"
@@ -26,7 +28,7 @@ import ProjectCard from "../components/ProjectCard";
     <div class="h-28"></div>
     <ProjectCard
       title="Jupiter"
-      image="/public/projects/jupiter/thumbnail.png"
+      image="/projects/jupiter/thumbnail.png"
       role="Software Engineer, Frontend"
       subtitle="India's leading neobank."
       link="https://jupiter.money"
@@ -34,4 +36,25 @@ import ProjectCard from "../components/ProjectCard";
       accentColor="#FC7A69"
     />
   </section>
+
+  <section class="mt-32 space-y-20 mb-8">
+    <h2 class="text-5xl font-semibold text-center">
+      What some old friends say
+    </h2>
+
+    <div class="flex justify-center items-stretch space-x-20 max-w-7xl mx-auto">
+      <TemplateCard
+        text="I was a lead. lorem ipsum dolor amet sit. I was a lead. lorem ipsum dolor amet sit. I was a lead. lorem ipsum dolor amet sit."
+        author="Aadil Verma"
+        position="Co-founder, Vidpedia"
+      />
+      <TemplateCard
+        text="I was a lead. lorem ipsum dolor amet sit. I was a lead. lorem ipsum dolor amet sit. I was a lead. lorem ipsum dolor amet sit."
+        author="Krutarth Dave"
+        position="Frontend Lead, Jupiter"
+      />
+    </div>
+  </section>
+
+  <Footer />
 </Layout>

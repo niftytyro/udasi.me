@@ -6,13 +6,10 @@ const currentPath = new URL(Astro.request.url).pathname;
   <h3 class={currentPath === "/" ? "underline" : ""}>
     <a href="/">Home</a>
   </h3>
-  <h3 class={currentPath === "/work" ? "underline" : ""}>
-    <a href="/work">Work</a>
-  </h3>
   <h3 class={currentPath === "/blog" ? "underline" : ""}>
     <a href="/blog">Blog</a>
   </h3>
-  <h3 class={currentPath === "/contact" ? "underline" : ""}>
-    <a href="/contact">Contact</a>
+  <h3 class={currentPath === "/about" ? "underline" : ""}>
+    <a href="/about">About</a>
   </h3>
 </nav>
