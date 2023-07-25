@@ -12,6 +12,8 @@ module.exports = {
       white: "#FCFCFC",
       gray: "#B9B9B9",
       darkGray: "#181818",
+      darkGray10: "#262626",
+      blue: "#4DABEE",
       "jupiter-accent": "#FC7A69",
       "vidpedia-accent": "#FDFC47",
     },

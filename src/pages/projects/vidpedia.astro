@@ -1,0 +1,124 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import ExternalLinkIcon from "../../icons/external-link.svg";
+---
+
+<Layout title="Welcome to Astro.">
+  <Navbar />
+
+  <section
+    class="pt-40 px-4 xs:px-8 md:px-16 lg:px-32 text-lg sm:text-xl lg:text-2xl"
+  >
+    <h1 class="text-4xl md:text-5xl font-bold text-center">Vidpedia</h1>
+    <img
+      src="/projects/vidpedia/thumbnail.png"
+      class="pt-16 mx-auto mb-8 md:mb-16"
+    />
+
+    <div class="flex justify-between items-start space-x-8">
+      <div>
+        <h4 class="text-gray mr-4">Role</h4>
+        <h3>Founding Engineer, Full Stack</h3>
+      </div>
+
+      <a
+        class="flex flex-row items-baseline space-x-2 cursor-not-allowed"
+        href="https://vidpedia.io"
+        target="_blank"
+      >
+        <span class="has-tooltip">
+          <span
+            class="tooltip mt-9 bg-darkGray10 rounded-md px-4 -ml-16 text-base sm:text-lg"
+          >
+            Website is currently down :/
+          </span>
+          <p
+            class="underline transition-all duration-200 text-lg sm:text-xl decoration-4 decoration-vidpedia-accent whitespace-nowrap"
+          >
+            <s>Check out</s>
+          </p>
+        </span>
+        <img src={ExternalLinkIcon} class="h-3" />
+      </a>
+    </div>
+
+    <p class="my-8 sm:my-16 md:my-32 text-lg sm:text-xl md:text-2xl">
+      Vidpedia is a collection of video editing templates. Video editors can
+      come and browse for a variety of edits based on their favorite style.
+      <br />
+      <br />
+      As a founding engineer, I developed the full project from scratch. The website
+      is currently down, but here’s a gallery of the screenshots. <s
+        >But also feel free to checkout the <a
+          href="https://vidpedia.io"
+          class="text-blue">live project</a
+        ></s
+      >. The website is currently down, but we will be back up very soon!
+    </p>
+  </section>
+
+  <section class="hidden md:flex justify-between items-start space-x-8 px-8">
+    <div class="grow-[4] flex flex-col justify-start items-center sm:space-y-8">
+      <img
+        src="/projects/vidpedia/home.png"
+        class="border rounded-xl lg:rounded-3xl overflow-hidden"
+      />
+      <img
+        src="/projects/vidpedia/submit-success.png"
+        class="border rounded-xl lg:rounded-3xl overflow-hidden"
+      />
+    </div>
+    <div class="grow-[2] flex flex-col justify-start items-center sm:space-y-8">
+      <img
+        src="/projects/vidpedia/mobile-home.png"
+        class="border rounded-xl lg:rounded-3xl overflow-hidden"
+      />
+    </div>
+    <div class="grow-[4] flex flex-col justify-start items-start sm:space-y-8">
+      <img
+        src="/projects/vidpedia/submit.png"
+        class="border rounded-xl lg:rounded-3xl overflow-hidden"
+      />
+      <img
+        src="/projects/vidpedia/template.png"
+        class="border rounded-xl lg:rounded-3xl overflow-hidden"
+      />
+      <img
+        src="/projects/vidpedia/mobile-template.png"
+        class="border rounded-xl lg:rounded-3xl overflow-hidden w-1/2"
+      />
+    </div>
+  </section>
+
+  <section class="flex md:hidden justify-between items-start space-x-4 px-4">
+    <div class="grow-[4] flex flex-col justify-start items-center space-y-4">
+      <img
+        src="/projects/vidpedia/home.png"
+        class="border rounded-lg overflow-hidden"
+      />
+      <img
+        src="/projects/vidpedia/submit-success.png"
+        class="border rounded-lg overflow-hidden"
+      />
+      <img
+        src="/projects/vidpedia/submit.png"
+        class="border rounded-lg overflow-hidden"
+      />
+      <img
+        src="/projects/vidpedia/template.png"
+        class="border rounded-lg overflow-hidden"
+      />
+    </div>
+    <div class="grow-[2] flex flex-col justify-start items-start space-y-4">
+      <img
+        src="/projects/vidpedia/mobile-template.png"
+        class="border rounded-lg overflow-hidden"
+      />
+      <img
+        src="/projects/vidpedia/mobile-home.png"
+        class="border rounded-lg overflow-hidden"
+      />
+    </div>
+  </section>
+</Layout>
