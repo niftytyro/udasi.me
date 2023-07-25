@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import ExternalLinkIcon from "../icons/external-link.svg";
+import { throttle } from "radash";
 
 interface Props {
   title: string;
@@ -38,13 +39,13 @@ const ProjectCard: React.FC<Props> = ({
   }, []);
 
   useEffect(() => {
-    document.addEventListener("scroll", onScroll);
+    document.addEventListener("scroll", throttle({ interval: 100 }, onScroll));
     return () => document.removeEventListener("scroll", onScroll);
   }, [onScroll]);
 
   return (
     <div className="w-full px-24">
-      <div className="flex justify-center items-start text-2xl max-w-5xl mx-auto space-x-24">
+      <div className="flex justify-between items-start text-2xl max-w-5xl mx-auto space-x-24">
         <div>
           <h1 className="text-6xl font-bold mb-3">{title}</h1>
           <h3>{subtitle}</h3>
@@ -58,7 +59,9 @@ const ProjectCard: React.FC<Props> = ({
               style={{
                 textDecorationColor: isVisible ? accentColor : "#FCFCFC",
               }}
-              className={`mt-4 underline ${isVisible ? "decoration-4" : ""}`}
+              className={`mt-4 underline transition-all duration-200 ${
+                isVisible ? "decoration-4" : ""
+              }`}
             >
               Check it out
             </p>
@@ -68,7 +71,7 @@ const ProjectCard: React.FC<Props> = ({
       </div>
       <img
         ref={thumbnailRef}
-        className={`w-full mt-12 px-24 transition-all duration-700 ${
+        className={`w-full mt-12 px-24 transition-all duration-200 ${
           isVisible ? "grayscale-0 blur-0" : "grayscale blur-lg"
         }`}
         src={image}
