@@ -12,12 +12,40 @@ const { title } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+
+    <!-- Primary Meta Tags -->
+    <title>Udasi Tharani | Software Developer</title>
+    <meta name="title" content="Udasi Tharani | Software Developer" />
     <meta
       name="description"
       content="Udasi is a software developer with a love for great products and great technology."
     />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://udasi.me/" />
+    <meta property="og:title" content="Udasi Tharani | Software Developer" />
+    <meta
+      property="og:description"
+      content="Udasi is a software developer with a love for great products and great technology."
+    />
+    <meta property="og:image" content="/meta.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://udasi.me/" />
+    <meta
+      property="twitter:title"
+      content="Udasi Tharani | Software Developer"
+    />
+    <meta
+      property="twitter:description"
+      content="Udasi is a software developer with a love for great products and great technology."
+    />
+    <meta property="twitter:image" content="/meta.png" />
+
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
