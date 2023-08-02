@@ -8,7 +8,9 @@ interface Props {
 const { author, position, text } = Astro.props;
 ---
 
-<div class="bg-darkGray flex-1 rounded-2xl py-12 px-9 space-y-20">
+<div
+  class="flex flex-col justify-between items-start bg-darkGray flex-1 rounded-2xl py-12 px-9 space-y-20"
+>
   <p class="text-lg">{text}</p>
   <p class="text-xl font-medium">~ {author}, {position}</p>
 </div>
