@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+html {
+  background-color: #101010;
+}
+
+/* .h-full tailwind class not applying styles */
+.h-full {
+  height: 100%;
+}
+
+* {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+@layer utilities {
+  .tooltip {
+    @apply invisible absolute;
+  }
+
+  .has-tooltip:hover .tooltip {
+    @apply visible z-50;
+  }
+}
+
+@layer base {
+  h1 {
+    @apply text-3xl font-semibold text-gray10;
+  }
+  h2 {
+    @apply text-2xl font-semibold text-gray10 mt-8 mb-4;
+  }
+  h3 {
+    @apply text-xl font-semibold text-gray10 mt-6 mb-2;
+  }
+
+  ul {
+    @apply mt-2 mb-4;
+  }
+  ul > li {
+    @apply list-disc list-inside ml-4;
+  }
+}
