@@ -6,11 +6,11 @@ const allBlogPosts = await getCollection("blog");
 ---
 
 <Layout title="Blog">
-  <section class="px-8 py-16">
+  <section class="flex flex-col justify-center items-center px-8 py-16">
     {
       allBlogPosts.map((post) => (
-        <a href="/blog/creating-a-language">
-          <div class="flex flex-col justify-center items-center bg-darkGray rounded-lg pb-4 w-1/3 overflow-hidden">
+        <a href="/blog/creating-a-language" class="w-3/4 xl:w-1/2">
+          <div class="flex flex-col justify-center items-center bg-darkGray rounded-lg pb-4 overflow-hidden">
             <img src={post.data.image} class="mb-4 w-full" />
             <p class="font-gray10 font-medium">{post.data.title}</p>
           </div>
