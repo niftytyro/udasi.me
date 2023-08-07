@@ -9,10 +9,10 @@ const allBlogPosts = await getCollection("blog");
   <section class="flex flex-col justify-center items-center px-8 py-16">
     {
       allBlogPosts.map((post) => (
-        <a href="/blog/creating-a-language" class="w-3/4 xl:w-1/2">
+        <a href="/blog/creating-a-language" class="w-4/5 md:w-3/4 xl:w-1/2">
           <div class="flex flex-col justify-center items-center bg-darkGray rounded-lg pb-4 overflow-hidden">
             <img src={post.data.image} class="mb-4 w-full" />
-            <p class="font-gray10 font-medium">{post.data.title}</p>
+            <p class="font-gray10 text-lg font-medium">{post.data.title}</p>
           </div>
         </a>
       ))
