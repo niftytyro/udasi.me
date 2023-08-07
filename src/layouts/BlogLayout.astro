@@ -1,0 +1,66 @@
+---
+import "../styles/styles.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+    thumbnail: string;
+    thumbnail_subtitle: string;
+  };
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+
+    <!-- Primary Meta Tags -->
+    <title>{frontmatter.title}</title>
+    <meta name="title" title={frontmatter.title} />
+    <meta name="description" content={frontmatter.description} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://udasi.me/" />
+    <meta property="og:title" content={frontmatter.title} />
+    <meta property="og:description" content={frontmatter.description} />
+    <meta property="og:image" content="/meta.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://udasi.me/" />
+    <meta property="twitter:title" content={frontmatter.title} />
+    <meta property="twitter:description" content={frontmatter.description} />
+    <meta property="twitter:image" content="/meta.png" />
+
+    <meta name="generator" content={Astro.generator} />
+    <title>{frontmatter.title}</title>
+  </head>
+  <body class="w-screen bg-black text-white">
+    <div class="py-6 sm:py-8 md:py-12">
+      <Navbar underline="blog" />
+      <div class="mx-8 lg:max-w-2xl lg:mx-auto">
+        <h1 class="mt-28 mb-8">
+          {frontmatter.title}
+        </h1>
+        <img
+          src={frontmatter.thumbnail}
+          class=""
+          alt={frontmatter.thumbnail_subtitle}
+        />
+        <p class="text-gray mt-2 mb-16 italic text-center">
+          {frontmatter.thumbnail_subtitle}
+        </p>
+        <slot />
+      </div>
+    </div>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,88 @@
+---
+layout: ../../layouts/BlogLayout.astro
+title: I wanna build a programming language
+description: This is an introductory post about a series of posts about puff, a new programming language I am building from scratch as I study Crafting Interpreters.
+thumbnail: /blog/mt-crafting-interpreters.png
+thumbnail_subtitle: Mt. Crafting Interpreters
+---
+import ExpandableText from "../../components/ExpandableText.tsx"
+
+I have been wanting to do this for a long time. Only now have I gotten around to it. So I am finally picking up the legendary book Crafting Interpreters and I am going to design and implement my own language while studying it.  
+<br />
+While doing that, I will also be writing about it...  
+<br />
+_This is so exciting!_  
+
+## Getting Started
+
+There's 2 things:
+- Language Design
+- Language Implementation
+<br />
+Crafting Interpreters designs and implements lox (twice). I want to design _my own language_. It gives me a sense of cool. So we'll do that.  
+<br />
+Okay so first things first. The name. I have decided to call it **puff**. Cool name, eh?  
+
+## A Map of the Territory
+
+Most languages kinda work in a similar fashion. On a high-level, that is to say. But there are many decisions and paths taken (and paths not taken) while implementing a language on many different levels. Let's take a high-level view of the compilation process. So there are 3 phases of compilation:
+
+- Frontend: This is the part that deals with the source code and transforming it into a form that we can make sense of.
+- Middle End (or Intermediate Representation): This acts as an interface between the frontend and the backend. We also do some optimizations here. <ExpandableText client:only="react" text="Why do we need this?" explanation="It really helps reduce the amount of effort to be done. Let's say you want to support 5 languages. Python, Rust, C, Java and Mojo. And 4 architectures. x86, ARM, RISC-V and SPARC. If you wanted to implement all these languages for each of the architectures, you would need 20 implementations (languages × archs)." />
+- Backend: This is where we take the IR and convert it to either machine code or bytecode. More on that a bit later.
+<br />
+Was that too vague? Let me explain.
+
+### Frontend
+
+As I said, here we perform scanning and parsing and transform the source code into a suitable form to be able to better make sense of it. There's 3 parts to this:
+
+- Scanning/Lexical Analysis (Source Code -> Tokens): We take the user's source code and scan it to generate an array of tokens, ignoring parts which are not useful for code execution like whitespsace and comments. Essentially, taking the string and making an array of it, while checking for any syntax errors we can catch.
+- Parsing (Tokens -> Syntax Tree): During parsing, we take the tokens and organize them in a tree structure based on the grammar of the language.
+- Static Analysis (AST -> IR): This is where we start trying to make sense of the code. Basically, identifying the identifiers and linking them up to their definitions. This is where scope comes into play. Also, if two identifiers don't support the operation, for instance, we report a type error. The information gained after static analysis can be handled in a couple of ways:
+	- Storing them as attributes back in the tree
+	- Storing them in a separate look up table with keys typically as the variable names and declarations
+	- Most powerful way is to transform the tree into a new, more fitting data structure, i.e., IR.
+
+### Intermediate Representation (or IR or Middle End)
+
+This one deals with neither the source nor the target. It acts as an interface between the two instead. This really helps reduce the effort needed to create a compiler for different languages and architectures as we saw before.  
+Also, optimizations are a big part of this. Basically, we can alter the program, as long as the output remains the same. Hence, a lot of optimizations are possible here.
+
+### Backend
+_(IR -> executable/bytecode)_
+
+All the optimizations are down by now. Now, we need to actually generate the code to run. We have 2 options. We can generate a executable directly from the IR. But the issue is, that will run on a specific architecture. That is sure very performant, but it's a pain in the arse to generate since there's a pile of instructions on each architecture, with each one having it's own complex pipeline and a lot of historical baggage. So you'd have to write a compiler for each architecture, which is a lot of work.  
+<br />
+The other option is to generate bytecode for a virtual machine instead. Now that you have the bytecode, either you can write mini compilers for each architecture or ship a virtual machine (and with it the runtime). Such a virtual machine can be written in a language like C, which is supported on all architectures already. So your virtual machine can run on any machine that has C.  
+
+## Some Alternative Routes/Shortcuts
+
+There are some shortcuts one can take rather than going through the whole complex thing.  
+<br />
+
+### Tree Walking Interpreter
+
+This is what people actually mean when they say "interpreter". A tree walking interpreter is basically a program that takes your code, scans it, parses it and maybe does some static analysis. But it doesn't generate any IR or bytecode or machine code. It straight starts running the code by traversing the syntax tree.
+
+### Single Pass Compilers
+
+Single pass compilers perform scanning, parsing, analysis and code gen all in one go. No intermediate data structures. This method does limit what you can do with the design of the langugage, but at one time when memory was very litul in computers this was a necessity.
+
+### Transpilers
+
+Transpilers basically compile to an already existing language. For example, typescript to javascript.
+
+### Just In Time Compilers
+_This is downright sorcery to me._  
+
+Now this is some complicated shiz. I have no idea how this works. But essentially, JIT compilers are these magical pieces of software that identify the architecture of the system and generate appropriate machine code on the go.
+
+## Compilers And Interpreters
+
+Often, there's a lot of gray. Sure, C, C++, Rust implementations are compilers. Sure, early versions of Ruby, jlox implementations are interpreters (tree-walking). But Python, Ruby (newer), C#, Go, Haskell are not tree walking interpreters. Sure, they look like interpreters from user's perspective since they just run the program. But actually, they _are_ interpreters and they _have_ compilers, which compile to let's say bytecode before running in a VM.
+
+## Conclusion
+
+So... I am finally building a programming language! I have been wanting to do this for eons now, just never got around to doing it. It always fascinated me how a programming language worked really. I guess now I will know :)  
+I'm planning to write a series of posts sharing my learnings as I go. See you in the next one!
