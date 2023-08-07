@@ -1,23 +1,33 @@
 ---
+interface Props {
+  underline?: "blog" | "home" | "about";
+}
+
+const { underline } = Astro.props;
+
 let pathname = new URL(Astro.request.url).pathname;
 if (pathname.charAt(pathname.length - 1) === "/") {
   pathname = pathname.slice(0, -1);
+}
+
+if (underline) {
+  pathname = `/${underline}`;
 }
 ---
 
 <nav
   class="flex justify-end items-center space-x-4 sm:space-x-9 pr-8 sm:px-12 md:px-20 lg:px-32"
 >
-  <h3 class={pathname === "" ? "underline" : ""}>
+  <p class={pathname === "" ? "underline" : ""}>
     <a href="/">Home</a>
-  </h3>
-  <h3 class={pathname === "/blog" ? "underline" : ""}>
+  </p>
+  <p class={pathname === "/blog" ? "underline" : ""}>
     <a href="/blog">Blog</a>
-  </h3>
-  <h3 class={pathname === "/about" ? "underline" : ""}>
+  </p>
+  <p class={pathname === "/about" ? "underline" : ""}>
     <a href="/about">About</a>
-  </h3>
-  <h3>
+  </p>
+  <p>
     <a href="/Udasi Tharani.pdf" download>Resume</a>
-  </h3>
+  </p>
 </nav>
