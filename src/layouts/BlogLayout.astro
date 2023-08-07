@@ -7,8 +7,8 @@ interface Props {
   frontmatter: {
     title: string;
     description: string;
-    thumbnail: string;
-    thumbnail_subtitle: string;
+    image: string;
+    image_subtitle: string;
   };
 }
 
@@ -44,19 +44,15 @@ const { frontmatter } = Astro.props;
     <title>{frontmatter.title}</title>
   </head>
   <body class="w-screen bg-black text-white">
-    <div class="py-6 sm:py-8 md:py-12">
+    <div class="py-6 sm:py-8 md:pt-8 md:pb-20">
       <Navbar underline="blog" />
       <div class="mx-8 lg:max-w-2xl lg:mx-auto">
         <h1 class="mt-28 mb-8">
           {frontmatter.title}
         </h1>
-        <img
-          src={frontmatter.thumbnail}
-          class=""
-          alt={frontmatter.thumbnail_subtitle}
-        />
+        <img src={frontmatter.image} alt={frontmatter.image_subtitle} />
         <p class="text-gray mt-2 mb-16 italic text-center">
-          {frontmatter.thumbnail_subtitle}
+          {frontmatter.image_subtitle}
         </p>
         <slot />
       </div>
