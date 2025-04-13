@@ -16,16 +16,6 @@ import Footer from "../components/Footer.astro";
 
   <section id="work" class="w-full py-8">
     <ProjectCard
-      title="Vidpedia"
-      image="/projects/vidpedia/thumbnail.png"
-      role="Founding Engineer, Full Stack"
-      subtitle="A collection of video editing templates for professional editors."
-      link="/projects/vidpedia"
-      client:only="react"
-      accentColor="#FDFC47"
-    />
-    <div class="h-28 md:h-48"></div>
-    <ProjectCard
       title="Jupiter"
       image="/projects/jupiter/thumbnail.png"
       role="Software Engineer, Frontend"
@@ -33,6 +23,18 @@ import Footer from "../components/Footer.astro";
       link="https://jupiter.money"
       client:only="react"
       accentColor="#FC7A69"
+    />
+
+    <div class="h-28 md:h-48"></div>
+
+    <ProjectCard
+      title="Vidpedia"
+      image="/projects/vidpedia/thumbnail.png"
+      role="Founding Engineer, Full Stack"
+      subtitle="A collection of video editing templates for professional editors."
+      link="/projects/vidpedia"
+      client:only="react"
+      accentColor="#FDFC47"
     />
   </section>
 
